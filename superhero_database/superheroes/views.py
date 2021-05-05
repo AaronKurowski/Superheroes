@@ -40,13 +40,15 @@ def detail(request, superhero_id):
 
 def update(request, superhero_id):
     updated_hero = Superhero.objects.get(pk=superhero_id)
-    context = {
-        'updated_hero': updated_hero
-    }
-    return render(request, 'superheroes/update.html', context)
+    updated_hero.superhero_name = request.POST.get('superhero_name')
+    updated_hero.alter_ego = request.POST.get('alter_ego')
+    updated_hero.name = request.POST.get('name')
+    updated_hero.primary_ability = request.POST.get('primary_ability')
+    updated_hero.secondary_ability = request.POST.get('secondary_ability')
+    updated_hero.catchphrase = request.POST.get('catchphrase')
+    return HttpResponse("Updated")
 
 
 def delete(request, superhero_id):
-    delete_superhero = Superhero.objects.get(pk=superhero_id)
-    delete_superhero.delete()
-    return render(request, 'superheroes/index.html')
+    Superhero.objects.filter(pk=superhero_id).delete()
+    return HttpResponseRedirect(reverse('superheroes:index'))

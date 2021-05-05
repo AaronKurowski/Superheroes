@@ -12,7 +12,10 @@
 <ul>
     {% for superhero in all_superheroes %}
     <li><h2> {{superhero.superhero_name}} </h2></li>
-    <a href="{% url 'superheroes:detail' superhero.id %}">More info</a>
+    <a href="{% url 'superheroes:detail' superhero.id %}">More info</a><br><br>
+    <form action="{% url 'superheroes:delete_superhero' superhero.id %}" name="delete_superhero">
+        <button type="submit">Delete</button>
+    </form>
     {% endfor %}
 </ul>
 </body>

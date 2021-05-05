@@ -39,8 +39,14 @@ def detail(request, superhero_id):
 
 
 def update(request, superhero_id):
-    pass
+    updated_hero = Superhero.objects.get(pk=superhero_id)
+    context = {
+        'updated_hero': updated_hero
+    }
+    return render(request, 'superheroes/update.html', context)
 
 
 def delete(request, superhero_id):
-    pass
+    delete_superhero = Superhero.objects.get(pk=superhero_id)
+    delete_superhero.delete()
+    return render(request, 'superheroes/index.html')

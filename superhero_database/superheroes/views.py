@@ -60,4 +60,3 @@ def update(request, superhero_id):
 def delete(request, superhero_id):
     Superhero.objects.filter(pk=superhero_id).delete()
     return HttpResponseRedirect(reverse('superheroes:index'))
-

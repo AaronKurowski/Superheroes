@@ -17,11 +17,10 @@ def create(request):
     if request.method == 'POST':
         superhero_name = request.POST.get('superhero_name')
         alter_ego = request.POST.get('alter_ego')
-        name = request.POST.get('name')
         primary_ability = request.POST.get('primary_ability')
         secondary_ability = request.POST.get('secondary_ability')
         catchphrase = request.POST.get('catchphrase')
-        new_superhero = Superhero(superhero_name=superhero_name, alter_ego=alter_ego, name=name,
+        new_superhero = Superhero(superhero_name=superhero_name, alter_ego=alter_ego,
                                   primary_ability=primary_ability, secondary_ability=secondary_ability,
                                   catchphrase=catchphrase)
         new_superhero.save()
@@ -43,7 +42,6 @@ def update(request, superhero_id):
         updated_hero = Superhero.objects.get(pk=superhero_id)
         updated_hero.superhero_name = request.POST.get('superhero_name')
         updated_hero.alter_ego = request.POST.get('alter_ego')
-        updated_hero.name = request.POST.get('name')
         updated_hero.primary_ability = request.POST.get('primary_ability')
         updated_hero.secondary_ability = request.POST.get('secondary_ability')
         updated_hero.catchphrase = request.POST.get('catchphrase')

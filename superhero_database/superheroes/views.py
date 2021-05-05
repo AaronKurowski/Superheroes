@@ -36,3 +36,11 @@ def detail(request, superhero_id):
         'single_superhero': single_superhero
     }
     return render(request, 'superheroes/detail.html', context)
+
+
+def update(request, superhero_id):
+    pass
+
+
+def delete(request, superhero_id):
+    pass

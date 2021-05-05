@@ -39,16 +39,25 @@ def detail(request, superhero_id):
 
 
 def update(request, superhero_id):
-    updated_hero = Superhero.objects.get(pk=superhero_id)
-    updated_hero.superhero_name = request.POST.get('superhero_name')
-    updated_hero.alter_ego = request.POST.get('alter_ego')
-    updated_hero.name = request.POST.get('name')
-    updated_hero.primary_ability = request.POST.get('primary_ability')
-    updated_hero.secondary_ability = request.POST.get('secondary_ability')
-    updated_hero.catchphrase = request.POST.get('catchphrase')
-    return HttpResponse("Updated")
+    if request.method == 'POST':
+        updated_hero = Superhero.objects.get(pk=superhero_id)
+        updated_hero.superhero_name = request.POST.get('superhero_name')
+        updated_hero.alter_ego = request.POST.get('alter_ego')
+        updated_hero.name = request.POST.get('name')
+        updated_hero.primary_ability = request.POST.get('primary_ability')
+        updated_hero.secondary_ability = request.POST.get('secondary_ability')
+        updated_hero.catchphrase = request.POST.get('catchphrase')
+        updated_hero.save()
+        return detail(request, superhero_id)
+    else:
+        superhero = Superhero.objects.get(pk=superhero_id)
+        context = {
+            'superhero': superhero
+        }
+        return render(request, 'superheroes/update.html', context)
 
 
 def delete(request, superhero_id):
     Superhero.objects.filter(pk=superhero_id).delete()
     return HttpResponseRedirect(reverse('superheroes:index'))
+

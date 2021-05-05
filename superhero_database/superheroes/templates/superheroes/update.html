@@ -6,17 +6,41 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Update Superhero</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
 </head>
 <body>
 <form action="{% url 'superheroes:update_superhero' superhero.id %}" method="post">
     {% csrf_token %}
-    Superhero Name:<input type="text" name="superhero_name" id="superhero_name"><br>
-    Alter Ego:<input type="text" name="alter_ego" id="alter_ego"><br>
-    Primary Ability:<input type="text" name="primary_ability" id="primary_ability"><br>
-    Secondary Ability:<input type="text" name="secondary_ability" id="secondary_ability"><br>
-    Catchphrase:<input type="text" name="catchphrase" id="catchphrase"><br><br>
-    <input type="submit" value="Update info!"><br><br>
+    <div>
+        <label for="superhero_name" class="form-label">Superhero Name</label>
+        <input type="text" class="form-control" id="superhero_name">
+    </div>
+    <div>
+        <label for="alter_ego" class="form-label">Alter Ego</label>
+        <input type="text" class="form-control" id="alter_ego">
+    </div>
+    <div>
+        <label for="primary_ability" class="form-label">Primary Ability</label>
+        <input type="text" class="form-control" id="primary_ability">
+    </div>
+    <div>
+        <label for="secondary_ability" class="form-label">Secondary Ability</label>
+        <input type="text" class="form-control" id="secondary_ability">
+    </div>
+    <div>
+        <label for="catchphrase" class="form-label">Catchphrase</label>
+        <input type="text" class="form-control" id="catchphrase">
+    </div><br>
+
+
+<!--    Superhero Name:<input type="text" name="superhero_name" id="superhero_name"><br>-->
+<!--    Alter Ego:<input type="text" name="alter_ego" id="alter_ego"><br>-->
+<!--    Primary Ability:<input type="text" name="primary_ability" id="primary_ability"><br>-->
+<!--    Secondary Ability:<input type="text" name="secondary_ability" id="secondary_ability"><br>-->
+<!--    Catchphrase:<input type="text" name="catchphrase" id="catchphrase"><br><br>-->
+    <input type="submit" class="btn btn-primary" value="Update info!"><br><br>
     <a href="{% url 'superheroes:index' %}">Go Back</a>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
 </form>
 </body>
 </html>

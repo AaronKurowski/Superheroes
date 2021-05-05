@@ -6,17 +6,21 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Superhero Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link href="{% static 'css/"
 </head>
 <body>
 <h1>Superhero Details</h1>
 <ul>
-    <label></label>
+    <div class="alert alert-primary">
     <b>Hero Name:</b> {{single_superhero.superhero_name}}<br>
     <b>Alter Ego:</b> {{single_superhero.alter_ego}}<br>
     <b>Primary Ability:</b> {{single_superhero.primary_ability}}<br>
     <b>Secondary Ability:</b> {{single_superhero.secondary_ability}}<br>
     <b>Catchphrase:</b> {{single_superhero.catchphrase}}<br><br>
+    </div>
     <a href="{% url 'superheroes:index' %}">Go Back</a>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
 </ul>
 </body>
 </html>

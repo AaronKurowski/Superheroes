@@ -28,3 +28,11 @@ def create(request):
         return HttpResponseRedirect(reverse('superheroes:index'))
     else:
         return render(request, 'superheroes/create.html')
+
+
+def detail(request, superhero_id):
+    single_superhero = Superhero.objects.get(pk=superhero_id)
+    context = {
+        'single_superhero': single_superhero
+    }
+    return render(request, 'superheroes/detail.html', context)
